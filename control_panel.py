@@ -1,11 +1,13 @@
 import matplotlib.pyplot as plt
 import os
 
-border = 0.01
+border = 0.005
 
 def figure():
     bg_filename = os.path.join('becca_tools_control_panel', 'images', 
-                               'black_rectangle.png')
+                               'copper_background.png')
+    #bg_filename = os.path.join('becca_tools_control_panel', 'images', 
+    #                           'black_rectangle.png')
     fig = plt.figure(num=69, figsize=(16., 9.))
     rect = (0., 0., 1., 1.)
     bg_ax = fig.add_axes(rect, frame_on=False, label='background')
@@ -15,21 +17,24 @@ def figure():
     plt.imshow(bg_image, aspect='auto')
 
     logo_filename = os.path.join('becca_tools_control_panel', 'images', 
-                                 'logo_inline_light_blur.png')
-    rect = (0.88, 0.02, 0.1, 0.04)
+                                 'logo_plate.png')
+    rect = (0.82, 0.01, 0.17, 0.10)
     logo_ax = fig.add_axes(rect, frame_on=False, label='logo')
     logo_ax.get_xaxis().set_visible(False)
     logo_ax.get_yaxis().set_visible(False)
     logo_image = plt.imread(logo_filename)
-    plt.imshow(logo_image,aspect='auto')
+    plt.imshow(logo_image,aspect='auto', interpolation='bilinear')
     return fig
         
 def subfigure(fig, left=0.1, bottom=0.1, width=0.8, height=0.8):    
+    sub_filename = os.path.join('becca_tools_control_panel', 'images', 
+                                 'copper_window.png')
     #sub_filename = os.path.join('becca_tools_control_panel', 'images', 
     #                             'tan_rectangle.png')
-    sub_filename = os.path.join('becca_tools_control_panel', 'images', 
-                                'grey_rectangle.png')
-    rect = (left + border, bottom + border, width - 2 * border, height- 2 * border)
+    #sub_filename = os.path.join('becca_tools_control_panel', 'images', 
+    #                            'grey_rectangle.png')
+    rect = (left + border, bottom + border, 
+            width - 2 * border, height- 2 * border)
     ax = fig.add_axes(rect, frame_on=False, label='background')
     ax.get_xaxis().set_visible(False)
     ax.get_yaxis().set_visible(False)
