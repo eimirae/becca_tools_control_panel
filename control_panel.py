@@ -1,11 +1,14 @@
 import matplotlib.pyplot as plt
 import os
 
+""" Provide some tools for making a multi-windowed control panel."""
 border = 0.005
 
 def figure():
+    """ Create and initialize the main figure window and background """
     bg_filename = os.path.join('becca_tools_control_panel', 'images', 
                                'copper_background.png')
+    # Here's another background option
     #bg_filename = os.path.join('becca_tools_control_panel', 'images', 
     #                           'black_rectangle.png')
     fig = plt.figure(num=69, figsize=(16., 9.))
@@ -27,8 +30,10 @@ def figure():
     return fig
         
 def subfigure(fig, left=0.1, bottom=0.1, width=0.8, height=0.8):    
+    """ Create and initialize a subwindow """
     sub_filename = os.path.join('becca_tools_control_panel', 'images', 
                                  'copper_window.png')
+    # Here are another couple of style options
     #sub_filename = os.path.join('becca_tools_control_panel', 'images', 
     #                             'tan_rectangle.png')
     #sub_filename = os.path.join('becca_tools_control_panel', 'images', 
